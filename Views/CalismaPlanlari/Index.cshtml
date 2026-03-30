@@ -1,0 +1,49 @@
+@model IEnumerable<DgsTakipSistemi.Models.CalismaPlani>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Yeni Plan Ekle</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+
+            <th>
+                @Html.DisplayNameFor(model => model.GorevAdi)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Gun)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TamamlandiMi)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.GorevAdi)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Gun)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TamamlandiMi)
+            </td>
+            <td>
+                    <a asp-controller="CalismaPlanlari" asp-action="Edit" asp-route-id="@item.Id">Düzenle</a> |
+                    <a asp-controller="CalismaPlanlari" asp-action="Details" asp-route-id="@item.Id">Detaylar</a> |
+                    <a asp-controller="CalismaPlanlari" asp-action="Delete" asp-route-id="@item.Id">Sil</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

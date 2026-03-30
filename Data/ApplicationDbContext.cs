@@ -11,7 +11,7 @@ namespace DgsTakipSistemi.Data
             : base(options)
         {
         }
-
+        public DbSet<Models.CalismaPlani> CalismaPlanlari { get; set; }
         // İleride kendi tablolarımızı buraya DbSet olarak ekleyeceğiz.
     }
 }
